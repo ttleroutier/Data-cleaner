@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Data Cleaner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- External libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <div><h1>🧼 Smart Data Cleaner</h1><small>Personalized cleaning workflow</small></div>
+    <div>
+      <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" style="display:none" />
+      <button class="btn" onclick="document.getElementById('fileInput').click()">Upload CSV / Excel</button>
+    </div>
+  </header>
+
+  <main>
+    <nav id="nav"></nav>
+    <section id="content">
+      <div class="card"><h2>Welcome</h2><p class="muted">Upload a CSV or Excel file to start.</p></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- ============ APP SCRIPTS (load order matters) ============ -->
+  <!-- Core -->
+  <script src="js/01-config-state.js"></script>
+  <script src="js/02-helpers.js"></script>
+  <script src="js/03-metrics.js"></script>
+  <script src="js/04-types.js"></script>
+  <script src="js/05-diagnostic.js"></script>
+  <script src="js/06-charts.js"></script>
+  <script src="js/07-fileio.js"></script>
+
+  <!-- Section renderers -->
+  <script src="js/sections/10-setup.js"></script>
+  <script src="js/sections/11-preview.js"></script>
+  <script src="js/sections/12-diagnostic-view.js"></script>
+  <script src="js/sections/13-columns.js"></script>
+  <script src="js/sections/14-types.js"></script>
+  <script src="js/sections/15-duplicates.js"></script>
+  <script src="js/sections/16-missing.js"></script>
+  <script src="js/sections/17-invalid.js"></script>
+  <script src="js/sections/18-outliers.js"></script>
+  <script src="js/sections/19-formulas.js"></script>
+  <script src="js/sections/20-rules.js"></script>
+  <script src="js/sections/21-text.js"></script>
+  <script src="js/sections/22-visualizations.js"></script>
+  <script src="js/sections/23-express.js"></script>
+  <script src="js/sections/24-history.js"></script>
+  <script src="js/sections/25-compare.js"></script>
+
+  <!-- App bootstrap (must be LAST: calls renderNav) -->
+  <script src="js/08-app.js"></script>
+</body>
+</html>
