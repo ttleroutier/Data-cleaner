@@ -1,0 +1,137 @@
+/* =====================================================================
+   SMART DATA CLEANER — STYLES
+   0.1  Theme variables (colors)
+   0.2  Base / reset
+   0.3  Layout (header, main, nav, section)
+   0.4  Cards & metrics
+   0.5  Tables
+   0.6  Buttons
+   0.7  Form controls
+   0.8  Quality score & helpers
+   0.9  Badges (types & confidence)
+   0.10 Multi-select dropdown
+   0.11 Severity badges
+   0.12 Charts
+   0.13 Collapsible recommendation groups
+   0.14 Drag & drop overlay
+   ===================================================================== */
+
+/* 0.1 Theme variables ------------------------------------------------ */
+:root { --bg:#0f172a; --panel:#1e293b; --panel2:#273449; --text:#f1f5f9; --muted:#94a3b8; --accent:#38bdf8; --accent2:#22c55e; --danger:#ef4444; --warn:#f59e0b; --border:#334155; }
+
+/* 0.2 Base / reset --------------------------------------------------- */
+* { box-sizing: border-box; }
+body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); }
+
+/* 0.3 Layout --------------------------------------------------------- */
+header { padding:20px 32px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+header h1 { margin:0; font-size:20px; } header small { color:var(--muted); }
+main { display:grid; grid-template-columns:280px 1fr; min-height:calc(100vh - 65px); }
+nav { background:var(--panel); padding:20px; border-right:1px solid var(--border); overflow:auto; }
+nav h3 { color:var(--muted); font-size:12px; text-transform:uppercase; margin-top:20px; }
+nav button { display:block; width:100%; text-align:left; padding:10px 12px; margin:4px 0; background:transparent; color:var(--text); border:none; border-radius:6px; cursor:pointer; font-size:14px; }
+nav button:hover:not(:disabled) { background:var(--panel2); }
+nav button.active { background:var(--accent); color:#0f172a; font-weight:600; }
+nav button:disabled { opacity:0.35; cursor:not-allowed; }
+section { padding:30px; overflow:auto; }
+h2 { margin-top:0; } h3 { margin-top:24px; }
+
+/* 0.4 Cards & metrics ------------------------------------------------ */
+.card { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:20px; margin-bottom:20px; }
+.metrics { display:flex; gap:16px; flex-wrap:wrap; }
+.metric { background:var(--panel2); padding:14px 18px; border-radius:8px; min-width:130px; }
+.metric .label { color:var(--muted); font-size:12px; }
+.metric .value { font-size:22px; font-weight:600; margin-top:4px; }
+.subcard { background:var(--panel2); padding:14px; border-radius:8px; margin-top:10px; }
+
+/* 0.5 Tables --------------------------------------------------------- */
+table { border-collapse:collapse; width:100%; font-size:13px; }
+th, td { padding:8px 10px; border-bottom:1px solid var(--border); text-align:left; }
+th { color:var(--muted); font-weight:500; }
+.preview { max-height:350px; overflow:auto; border:1px solid var(--border); border-radius:6px; }
+
+/* 0.6 Buttons -------------------------------------------------------- */
+.btn { background:var(--accent); color:#0f172a; padding:10px 16px; border:none; border-radius:6px; cursor:pointer; font-weight:600; font-size:14px; }
+.btn:hover:not(:disabled) { opacity:0.9; }
+.btn.secondary { background:var(--panel2); color:var(--text); }
+.btn.danger { background:var(--danger); color:white; }
+.btn.success { background:var(--accent2); color:white; }
+.btn.small { padding:4px 10px; font-size:12px; }
+.btn:disabled { opacity:0.4; cursor:not-allowed; }
+.btn.big { font-size:16px; padding:14px 24px; }
+
+/* 0.7 Form controls -------------------------------------------------- */
+select, input, textarea { background:var(--panel2); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:8px 10px; font-size:14px; font-family:inherit; }
+textarea { width:100%; min-height:100px; resize:vertical; }
+.row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:10px 0; }
+
+/* 0.8 Quality score & helpers --------------------------------------- */
+.quality { font-size:42px; font-weight:700; }
+.quality.good { color:var(--accent2); } .quality.mid { color:var(--warn); } .quality.bad { color:var(--danger); }
+.muted { color:var(--muted); font-size:13px; }
+.hidden { display:none; }
+code { background:var(--panel2); padding:2px 6px; border-radius:4px; font-size:12px; }
+pre { background:var(--panel2); padding:14px; border-radius:6px; overflow:auto; font-size:12px; }
+.helper { background:var(--panel2); padding:10px 14px; border-radius:6px; margin:8px 0; font-size:13px; }
+.rec.good { color:var(--accent2); } .rec.warn { color:var(--warn); } .rec.bad { color:var(--danger); }
+.toast { position:fixed; bottom:20px; right:20px; padding:12px 18px; border-radius:8px; color:white; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:1000; }
+.example-btn { background:var(--panel2); color:var(--accent); border:1px solid var(--accent); padding:4px 10px; border-radius:15px; font-size:11px; cursor:pointer; margin:2px; }
+.example-btn:hover { background:var(--accent); color:#0f172a; }
+.guided-toggle { background:var(--panel2); padding:12px; border-radius:8px; margin-bottom:16px; }
+.progress-bar { height:6px; background:var(--border); border-radius:3px; overflow:hidden; margin-top:8px; }
+.progress-fill { height:100%; background:var(--accent); transition:width 0.3s; }
+.step-nav { display:flex; justify-content:space-between; gap:10px; }
+.template-card { background:var(--panel2); padding:16px; border-radius:8px; cursor:pointer; border:2px solid transparent; transition:all 0.2s; }
+.template-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+.template-card h4 { margin:0 0 6px; color:var(--accent); }
+.template-card p { margin:0; color:var(--muted); font-size:13px; }
+.template-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin:12px 0; }
+
+/* 0.9 Badges --------------------------------------------------------- */
+.badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; margin-left:6px; }
+.badge.integer, .badge.float { background:#0c4a6e; color:#7dd3fc; }
+.badge.text { background:#3f2966; color:#c4b5fd; }
+.badge.categorical { background:#365314; color:#bef264; }
+.badge.date { background:#7c2d12; color:#fdba74; }
+.badge.boolean { background:#4c1d95; color:#c4b5fd; }
+.badge.empty { background:#374151; color:#9ca3af; }
+.badge.confidence.high { background:#14532d; color:#86efac; }
+.badge.confidence.mid { background:#78350f; color:#fdba74; }
+.badge.confidence.low { background:#7f1d1d; color:#fca5a5; }
+
+/* 0.10 Multi-select dropdown ---------------------------------------- */
+.multiselect { position:relative; display:inline-block; min-width:220px; }
+.multiselect-toggle { background:var(--panel2); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:8px 12px; cursor:pointer; width:100%; text-align:left; font-size:14px; }
+.multiselect-toggle:after { content:" ▾"; float:right; color:var(--muted); }
+.multiselect-menu { position:absolute; top:100%; left:0; right:0; background:var(--panel2); border:1px solid var(--border); border-radius:6px; padding:8px; max-height:300px; overflow-y:auto; z-index:20; box-shadow:0 4px 12px rgba(0,0,0,0.4); margin-top:4px; }
+.multiselect-menu label { display:block; padding:6px 10px; cursor:pointer; border-radius:4px; font-size:13px; }
+.multiselect-menu label:hover { background:var(--border); }
+.multiselect-menu input { margin-right:8px; }
+
+/* 0.11 Severity badges ---------------------------------------------- */
+.sev.high { background:#7f1d1d; color:#fca5a5; }
+.sev.med  { background:#78350f; color:#fdba74; }
+.sev.low  { background:#1e3a8a; color:#93c5fd; }
+.rec-item { background:var(--panel2); padding:12px 14px; border-radius:8px; margin-bottom:8px; display:flex; gap:12px; align-items:flex-start; justify-content:space-between; }
+.rec-item .body { flex:1; }
+.rec-item .body b { display:block; margin-bottom:2px; }
+
+/* 0.12 Charts -------------------------------------------------------- */
+.chart-card { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:16px; }
+.chart-note { color:var(--muted); font-size:12px; margin-top:8px; }
+.viz-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(380px, 1fr)); gap:16px; }
+
+/* 0.13 Collapsible recommendation groups ---------------------------- */
+.rec-group { margin-bottom:6px; }
+.rec-group-header { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:var(--panel2); border-radius:8px; cursor:pointer; user-select:none; transition:background 0.15s; }
+.rec-group-header:hover { background:var(--border); }
+.rec-group-header .left { display:flex; align-items:center; gap:8px; }
+.rec-group-header .arrow { display:inline-block; transition:transform 0.2s; font-size:10px; }
+.rec-group.open .rec-group-header .arrow { transform:rotate(90deg); }
+.rec-group-body { display:none; padding:4px 0 4px 12px; }
+.rec-group.open .rec-group-body { display:block; }
+
+/* 0.14 Drag & drop overlay ------------------------------------------ */
+#dropOverlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(56,189,248,0.12); backdrop-filter:blur(3px); z-index:9999; display:none; align-items:center; justify-content:center; pointer-events:none; }
+#dropOverlay.active { display:flex; }
+#dropOverlay .drop-text { background:var(--panel); padding:40px 60px; border-radius:16px; font-size:20px; font-weight:600; color:var(--accent); border:3px dashed var(--accent); box-shadow:0 8px 32px rgba(0,0,0,0.3); }
